@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import './App.css';
 import MainComponent from './components/MainComponent';
 import OtherPage from './components/OtherPage';
@@ -7,19 +7,23 @@ import OtherPage from './components/OtherPage';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header className="header">
-          <div>This is a multicontainer application</div>
-          <nav className="nav">
-            <Link to="/">Home</Link>
-            <Link to="/otherpage">Other page</Link>
+      <div className="app-container">
+        <header className="app-header">
+          <h1 className="app-title">Multicontainer Application</h1>
+          <nav className="app-nav">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/otherpage" className="nav-link">
+              Other Page
+            </Link>
           </nav>
         </header>
-        <main className="main">
-          <Switch>
-            <Route exact path="/" component={ MainComponent } />
-            <Route path="/otherpage" component={ OtherPage } />
-          </Switch>
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<MainComponent />} />
+            <Route path="/otherpage" element={<OtherPage />} />
+          </Routes>
         </main>
       </div>
     </Router>
