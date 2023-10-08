@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import './App.css';
-import MainComponent from './MainComponent';
-import OtherPage from './OtherPage';
+import MainComponent from './components/MainComponent';
+import OtherPage from './components/OtherPage';
 
 function App() {
   return (
