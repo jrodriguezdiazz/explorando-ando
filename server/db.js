@@ -3,7 +3,6 @@ const keys = require('./keys');
 const connection = mysql.createConnection(keys);
 
 async function executeQuery(query, params = []) {
-  let conn;
   try {
     return await connection.query(query, params);
   } catch (error) {
