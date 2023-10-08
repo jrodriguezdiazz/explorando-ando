@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/values/all', async (req, res) => {
   try {
-    const values = await db.getAllValues(); // Use the getAllValues function
+    const values = await db.getAllValues();
     res.send(values);
   } catch (error) {
     console.error('Error retrieving values:', error);
@@ -29,7 +29,7 @@ app.post('/values', async (req, res) => {
   }
 
   try {
-    await db.insertValue(value); // Use the insertValue function
+    await db.insertValue(value);
     res.send({working: true});
   } catch (error) {
     console.error('Error inserting value:', error);
