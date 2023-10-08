@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./db');
+const {isValidInteger} = require('./utils');
+// const db = require('./db');
 
 const app = express();
 app.use(cors());
@@ -23,7 +24,8 @@ app.get('/values/all', async (req, res) => {
 
 app.post('/values', async (req, res) => {
   const {value} = req.body;
-  if (typeof value !== 'number') {
+
+  if (!isValidInteger(value)) {
     res.status(400).send({error: 'Invalid input'});
     return;
   }
