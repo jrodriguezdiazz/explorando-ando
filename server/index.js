@@ -1,51 +1,44 @@
-const keys = require("./keys");
-
-// Express Application setup
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const db = require("./db");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Postgres client setup
-const { Pool } = require("pg");
-const pgClient = new Pool({
-  user: keys.pgUser,
-  host: keys.pgHost,
-  database: keys.pgDatabase,
-  password: keys.pgPassword,
-  port: keys.pgPort
-});
-
-pgClient.on("connect", client => {
-  client
-    .query("CREATE TABLE IF NOT EXISTS values (number INT)")
-    .catch(err => console.log("PG ERROR", err));
-});
-
-//Express route definitions
 app.get("/", (req, res) => {
   res.send("Hi");
 });
 
-// get the values
 app.get("/values/all", async (req, res) => {
-  const values = await pgClient.query("SELECT * FROM values");
-
-  res.send(values);
+  try {
+    const values = await db.getAllValues();
+    res.send(values);
+  } catch (error) {
+    console.error("Error retrieving values:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-// now the post -> insert value
 app.post("/values", async (req, res) => {
-  if (!req.body.value) res.send({ working: false });
+  const { value } = req.body;
+  if (typeof value !== "number") {
+    res.status(400).send({ error: "Invalid input" });
+    return;
+  }
 
-  pgClient.query("INSERT INTO values(number) VALUES($1)", [req.body.value]);
-
-  res.send({ working: true });
+  try {
+    await db.insertValue(value);
+    res.send({ working: true });
+  } catch (error) {
+    console.error("Error inserting value:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-app.listen(5000, err => {
-  console.log("Listening");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
