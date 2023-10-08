@@ -1,9 +1,9 @@
 version: "3"
 services:
-  postgres:
-    image: "postgres:latest"
-    environment:
-      - POSTGRES_PASSWORD=postgres_password
+  mariadb:
+    image: "mariadb:latest"
+    env_file:
+      - .env
   nginx:
     depends_on:
       - api
@@ -21,12 +21,8 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
-    environment:
-      - PGUSER=postgres
-      - PGHOST=postgres
-      - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
-      - PGPORT=5432
+    env_file:
+      - .env
   client:
     stdin_open: true
     environment:
