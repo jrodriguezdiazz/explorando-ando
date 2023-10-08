@@ -1,16 +1,14 @@
-const mariadb = require('mariadb');
+const mysql = require('mysql2');
 const keys = require('./keys');
-const pool = mariadb.createPool(keys);
+const connection = mysql.createConnection(keys);
 
 async function executeQuery(query, params = []) {
   let conn;
   try {
-    conn = await pool.getConnection();
-    return await conn.query(query, params);
+    return await connection.query(query, params);
   } catch (error) {
+    console.log(error);
     throw error;
-  } finally {
-    if (conn) conn.release();
   }
 }
 
