@@ -1,7 +1,8 @@
 module.exports = {
-  pgUser: process.env.PGUSER,
-  pgHost: process.env.PGHOST,
-  pgDatabase: process.env.PGDATABASE,
-  pgPassword: process.env.PGPASSWORD,
-  pgPort: process.env.PGPORT
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || 'root_password',
+  database: process.env.DB_DATABASE || 'mydb',
+  port: process.env.DB_PORT || 3306,
+  connectionLimit: 5,
 };

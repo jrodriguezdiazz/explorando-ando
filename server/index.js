@@ -1,39 +1,39 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const db = require("./db");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const db = require('./db');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Hi");
+app.get('/', (req, res) => {
+  res.send('Hi');
 });
 
-app.get("/values/all", async (req, res) => {
+app.get('/values/all', async (req, res) => {
   try {
-    const values = await db.getAllValues();
+    const values = await db.getAllValues(); // Use the getAllValues function
     res.send(values);
   } catch (error) {
-    console.error("Error retrieving values:", error);
-    res.status(500).send("Internal Server Error");
+    console.error('Error retrieving values:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
-app.post("/values", async (req, res) => {
-  const { value } = req.body;
-  if (typeof value !== "number") {
-    res.status(400).send({ error: "Invalid input" });
+app.post('/values', async (req, res) => {
+  const {value} = req.body;
+  if (typeof value !== 'number') {
+    res.status(400).send({error: 'Invalid input'});
     return;
   }
 
   try {
-    await db.insertValue(value);
-    res.send({ working: true });
+    await db.insertValue(value); // Use the insertValue function
+    res.send({working: true});
   } catch (error) {
-    console.error("Error inserting value:", error);
-    res.status(500).send("Internal Server Error");
+    console.error('Error inserting value:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 

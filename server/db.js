@@ -1,26 +1,28 @@
-const { Pool } = require("pg");
-const keys = require("./keys");
+const mariadb = require('mariadb');
+const keys = require('./keys');
+const pool = mariadb.createPool(keys);
 
-const pool = new Pool({
-  user: keys.pgUser,
-  host: keys.pgHost,
-  database: keys.pgDatabase,
-  password: keys.pgPassword,
-  port: keys.pgPort,
-});
+async function executeQuery(query, params = []) {
+  let conn;
+  try {
+    conn = await pool.getConnection();
+    return await conn.query(query, params);
+  } catch (error) {
+    throw error;
+  } finally {
+    if (conn) conn.release();
+  }
+}
 
-pool.on("connect", () => {
-  console.log("Connected to Postgres database");
-});
+async function getAllValues() {
+  const query = 'SELECT * FROM values';
+  return executeQuery(query);
+}
 
-const getAllValues = async () => {
-  const { rows } = await pool.query("SELECT * FROM values");
-  return rows;
-};
-
-const insertValue = async (value) => {
-  await pool.query("INSERT INTO values(number) VALUES($1)", [value]);
-};
+async function insertValue(value) {
+  const query = 'INSERT INTO values (number) VALUES (?)';
+  return executeQuery(query, [value]);
+}
 
 module.exports = {
   getAllValues,
