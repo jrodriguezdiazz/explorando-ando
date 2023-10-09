@@ -1,13 +1,11 @@
 const {createPool} = require('mysql2/promise');
 const credentials = require('./credentials');
-console.log(credentials);
 const pool = createPool(credentials);
 
 async function executeQuery(query, params = []) {
   try {
     return await pool.query(query, params);
   } catch (error) {
-    console.log(error);
     throw error;
   }
 }
