@@ -1,10 +1,11 @@
-const mysql = require('mysql2');
-const keys = require('./keys');
-const connection = mysql.createConnection(keys);
+const {createPool} = require('mysql2/promise');
+const credentials = require('./credentials');
+console.log(credentials);
+const pool = createPool(credentials);
 
 async function executeQuery(query, params = []) {
   try {
-    return await connection.query(query, params);
+    return await pool.query(query, params);
   } catch (error) {
     console.log(error);
     throw error;
@@ -21,7 +22,12 @@ async function insertValue(value) {
   return executeQuery(query, [value]);
 }
 
+async function ping() {
+  return executeQuery(`SELECT NOW() as now`);
+}
+
 module.exports = {
   getAllValues,
   insertValue,
+  ping
 };

@@ -3,11 +3,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const {isValidInteger} = require('./utils');
-// const db = require('./db');
+const db = require('./db');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/ping', async (req, res) => {
+  try {
+    const [result] = await db.ping();
+    return res.json(result[0]);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.get('/', (req, res) => {
   res.send('Hi');
