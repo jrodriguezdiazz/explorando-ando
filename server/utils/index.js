@@ -8,6 +8,16 @@ function isValidInteger(str) {
   }
 }
 
+function parseMysql2Response(response) {
+  if (!Array.isArray(response) || response.length === 0) {
+    return [];
+  }
+
+  return response[0];
+}
+
+
 module.exports = {
-  isValidInteger
+  isValidInteger,
+  parseMysql2Response
 };
