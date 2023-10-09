@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 const useFetchValues = () => {
   const [values, setValues] = useState([]);
@@ -9,7 +9,7 @@ const useFetchValues = () => {
     setLoading(true);
     try {
       const response = await axios.get('/api/values/all');
-      setValues(response.data.rows.map(row => row.number));
+      setValues(response.data);
     } catch (error) {
       console.error('Error fetching numbers:', error);
     } finally {

@@ -29,9 +29,9 @@ const MainComponent = () => {
         <Loading />
       ) : (
         <div className="values">
-          {values.map((val, index) => (
-            <div key={index} className="value">
-              {val}
+          {values.map(({id, value}) => (
+            <div key={id} className="value">
+              {value}
             </div>
           ))}
         </div>
