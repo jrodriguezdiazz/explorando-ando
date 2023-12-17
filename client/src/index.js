@@ -1,4 +1,4 @@
-import history from '@/utils/history';
+import history from './utils/history';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router} from 'react-router-dom';
