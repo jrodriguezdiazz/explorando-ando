@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => {
+const PublicLayout = ({ component: Component, layout: Layout, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -14,10 +14,10 @@ const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => {
   );
 };
 
-PublicRoute.propTypes = {
+PublicLayout.propTypes = {
   component: PropTypes.any,
   layout: PropTypes.any,
   rest: PropTypes.any,
 };
 
-export default PublicRoute;
+export default PublicLayout;
