@@ -1,12 +1,12 @@
-const {createPool} = require('mysql2/promise');
+const { Pool } = require('pg');
 const credentials = require('./credentials');
-const {parseMysql2Response} = require('./utils');
-const pool = createPool(credentials);
+console.log(credentials);
+const pool = new Pool(credentials);
 
 async function executeQuery(query, params = []) {
   try {
-    console.log({query});
-    return await pool.query(query, params);
+    const result = await pool.query(query, params);
+    return result.rows;
   } catch (error) {
     throw error;
   }

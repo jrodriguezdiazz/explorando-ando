@@ -1,7 +1,7 @@
 module.exports = {
-  port: process.env.MYSQLDB_DOCKER_PORT,
-  host: process.env.MYSQLDB_HOST,
-  user: process.env.MYSQLDB_USER,
-  password: process.env.MYSQLDB_PASSWORD,
-  database: process.env.MYSQLDB_DATABASE,
+  user: process.env.POSTGRES_USER,
+  host: 'localhost',
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+  port: 5432,
 };
