@@ -1,10 +1,8 @@
-import AboutUs from './pages/public/AboutUs';
-// import MovieDetail from '@/pages/public/MovieDetail';
-import PrivacyPolicy from './pages/public/PrivacyPolicy';
-import TermsAndConditions from './pages/public/TermsAndConditions';
 import {Switch} from 'react-router-dom';
 import EmptyLayout from './components/layout/EmptyLayout';
 import PublicLayout from './components/layout/PublicLayout';
+import PublicRoute from './components/routes/PublicRoute';
+import AboutUs from './pages/public/AboutUs';
 // import LoginContainer from '@/containers/auth/LoginContainer';
 // import RecoverPass from '@/containers/auth/RecoverPass';
 // import ResetPass from '@/containers/auth/ResetPass';
@@ -13,32 +11,33 @@ import Contact from './pages/public/Contact';
 import DestinationDetail from './pages/public/DestinationDetail';
 import HomePage from './pages/public/HomePage';
 import InternalError from './pages/public/InternalError';
-
 import NotFound from './pages/public/NotFound';
+import PrivacyPolicy from './pages/public/PrivacyPolicy';
+import TermsAndConditions from './pages/public/TermsAndConditions';
 
 function App() {
   return (<Switch>
     {/*  ERRORS */}
-    <PublicLayout exact path="/error-interno" layout={EmptyLayout} component={InternalError} />
+    <PublicRoute exact path="/error-interno" layout={EmptyLayout} component={InternalError} />
 
     {/*/!*  AUTH *!/*/}
-    {/*<PublicLayout exact path="/recuperar-contrasena" layout={EmptyLayout} component={RecoverPass} />*/}
-    {/*<PublicLayout exact path="/reiniciar-contrasena" layout={EmptyLayout} component={ResetPass} />*/}
+    {/*<PublicRoute exact path="/recuperar-contrasena" layout={EmptyLayout} component={RecoverPass} />*/}
+    {/*<PublicRoute exact path="/reiniciar-contrasena" layout={EmptyLayout} component={ResetPass} />*/}
     {/*<RestrictRoute exact path="/iniciar-sesion" layout={EmptyLayout} component={LoginContainer} />*/}
     {/*<RestrictRoute exact path="/registrarse" layout={EmptyLayout} component={SignUpContainer} />*/}
 
     {/*/!*  PUBLIC *!/*/}
-    <PublicLayout exact path="/" layout={PublicLayout} component={HomePage} />
-    <PublicLayout exact path="/contacto" layout={PublicLayout} component={Contact} />
-    <PublicLayout exact path="/detalle-de-destino" layout={PublicLayout} component={DestinationDetail} />
-    <PublicLayout exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
-    <PublicLayout
+    <PublicRoute exact path="/" layout={PublicLayout} component={HomePage} />
+    <PublicRoute exact path="/contacto" layout={PublicLayout} component={Contact} />
+    <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={DestinationDetail} />
+    <PublicRoute exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
+    <PublicRoute
       exact
       path="/politica-de-privacidad"
       layout={PublicLayout}
       component={PrivacyPolicy}
     />
-    <PublicLayout
+    <PublicRoute
       exact
       path="/terminos-y-condiciones"
       layout={PublicLayout}
@@ -46,18 +45,18 @@ function App() {
     />
 
     {/*/!*  PRIVATE *!/*/}
-    {/*<PrivateRoute exact path="/reservar-destino" layout={PublicLayout} component={FinishOrder} />*/}
+    {/*<PrivateRoute exact path="/reservar-destino" layout={PublicRoute} component={FinishOrder} />*/}
 
     {/*<PrivateRoute*/}
     {/*  exact*/}
     {/*  path="/pedido-completado"*/}
-    {/*  layout={PublicLayout}*/}
+    {/*  layout={PublicRoute}*/}
     {/*  component={OrderCompleted}*/}
     {/*/>*/}
 
-    {/*<PrivateRoute exact path="/verificar" layout={PublicLayout} component={VerifyToken} />*/}
+    {/*<PrivateRoute exact path="/verificar" layout={PublicRoute} component={VerifyToken} />*/}
 
-    {/*<PublicLayout exact path="/kiosko" layout={PublicLayout} component={ShoppingCart} />*/}
+    {/*<PublicRoute exact path="/kiosko" layout={PublicRoute} component={ShoppingCart} />*/}
 
     {/*/!*  ADMIN *!/*/}
     {/*<PrivateRoute exact path="/dashboard" layout={MainLayout} component={DashboardContainer} />*/}
@@ -151,7 +150,7 @@ function App() {
     {/*  component={InvoiceDetail}*/}
     {/*/>*/}
 
-    <PublicLayout exact path="*" layout={EmptyLayout} component={NotFound} />
+    <PublicRoute exact path="*" layout={EmptyLayout} component={NotFound} />
   </Switch>);
 }
 
