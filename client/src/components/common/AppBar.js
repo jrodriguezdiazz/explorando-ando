@@ -15,7 +15,6 @@ function AppBar() {
             style={{maxHeight: '150px'}}
             navbarScroll
           >
-            <Nav.Link href="/">INICIO</Nav.Link>
             <Nav.Link href="explora">EXPLORA</Nav.Link>
             <Nav.Link href="resenas">RESEÑAS</Nav.Link>
             <Nav.Link href="sobre-nosotros">NOSOTROS</Nav.Link>
