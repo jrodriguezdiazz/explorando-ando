@@ -1,16 +1,24 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
 import LoginForm from '../../components/auth/LoginForm';
 import Image from '../../components/common/Image';
+import useAuthStore from '../../stores/authStore';
 
 const Login = () => {
+  const {errorMessage, login} = useAuthStore((state) => state);
+
+  const handleSubmit = useCallback((values) => login(values), []);
+
   return (
     <Container fluid>
       <Row className="vh-100">
         <Col md={6} className="my-auto">
-          <LoginForm />
+          <LoginForm
+            handleSubmit={handleSubmit} errorMessage={errorMessage}
+          />
         </Col>
-        <Col md={6} className="d-none d-md-block" style={{
+        <Col
+          md={6} className="d-none d-md-block" style={{
           paddingRight: 0
         }}>
           <Image

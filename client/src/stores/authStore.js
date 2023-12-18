@@ -26,6 +26,7 @@ const useAuthStore = create((set) => ({
   errorMessage: null,
   login: async ({ email, password }) => {
     try {
+      console.log({email, password});
       const response = await loginUser({ email, password });
       set({
         isAuthenticated: true,
