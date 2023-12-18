@@ -1,23 +1,19 @@
-import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import {Fragment} from 'react';
+import {Container} from 'react-bootstrap';
+import AppBar from '../common/AppBar';
+import FooterPublic from '../common/FooterPublic';
 
-const PublicLayout = ({ component: Component, layout: Layout, ...rest }) => {
+const PublicLayout = ({children}) => {
   return (
-    <Route
-      {...rest}
-      render={(props) => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      )}
-    />
+    <Fragment>
+      <AppBar />
+      <Container>
+        <main>{children}</main>
+      </Container>
+      <FooterPublic />
+    </Fragment>
   );
 };
 
-PublicLayout.propTypes = {
-  component: PropTypes.any,
-  layout: PropTypes.any,
-  rest: PropTypes.any,
-};
 
 export default PublicLayout;
