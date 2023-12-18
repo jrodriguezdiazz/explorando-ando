@@ -1,19 +1,21 @@
 import {Switch} from 'react-router-dom';
 import EmptyLayout from './components/layout/EmptyLayout';
 import PublicLayout from './components/layout/PublicLayout';
+import RestrictRoute from './components/layout/RestrictRoute';
 import PublicRoute from './components/routes/PublicRoute';
 import AboutUs from './pages/public/AboutUs';
-// import LoginContainer from '@/containers/auth/LoginContainer';
 // import RecoverPass from '@/containers/auth/RecoverPass';
 // import ResetPass from '@/containers/auth/ResetPass';
-// import SignUpContainer from '@/containers/auth/SignUpContainer';
 import Contact from './pages/public/Contact';
-import DestinationDetail from './pages/public/DestinationDetail';
 import HomePage from './pages/public/HomePage';
 import InternalError from './pages/public/InternalError';
+import Login from './pages/public/Login';
 import NotFound from './pages/public/NotFound';
 import PrivacyPolicy from './pages/public/PrivacyPolicy';
+import SingUp from './pages/public/SingUp';
 import TermsAndConditions from './pages/public/TermsAndConditions';
+import TripDetail from './pages/public/TripDetail';
+import TripsResults from './pages/public/TripsResults';
 
 function App() {
   return (<Switch>
@@ -23,13 +25,13 @@ function App() {
     {/*/!*  AUTH *!/*/}
     {/*<PublicRoute exact path="/recuperar-contrasena" layout={EmptyLayout} component={RecoverPass} />*/}
     {/*<PublicRoute exact path="/reiniciar-contrasena" layout={EmptyLayout} component={ResetPass} />*/}
-    {/*<RestrictRoute exact path="/iniciar-sesion" layout={EmptyLayout} component={LoginContainer} />*/}
-    {/*<RestrictRoute exact path="/registrarse" layout={EmptyLayout} component={SignUpContainer} />*/}
+    <RestrictRoute exact path="/iniciar-sesion" layout={EmptyLayout} component={Login} />
+    <RestrictRoute exact path="/registrarse" layout={EmptyLayout} component={SingUp} />
 
     {/*/!*  PUBLIC *!/*/}
     <PublicRoute exact path="/" layout={PublicLayout} component={HomePage} />
     <PublicRoute exact path="/contacto" layout={PublicLayout} component={Contact} />
-    <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={DestinationDetail} />
+    <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={TripDetail} />
     <PublicRoute exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
     <PublicRoute
       exact
@@ -42,6 +44,13 @@ function App() {
       path="/terminos-y-condiciones"
       layout={PublicLayout}
       component={TermsAndConditions}
+    />
+
+    <PublicRoute
+      exact
+      path="/explora"
+      layout={PublicLayout}
+      component={TripsResults}
     />
 
     {/*/!*  PRIVATE *!/*/}

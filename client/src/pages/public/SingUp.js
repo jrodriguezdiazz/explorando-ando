@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
-import LoginForm from '../../components/auth/LoginForm';
+import SingUpForm from '../../components/auth/SingUpForm';
 import Image from '../../components/common/Image';
 
 const Login = () => {
@@ -8,9 +8,10 @@ const Login = () => {
     <Container fluid>
       <Row className="vh-100">
         <Col md={6} className="my-auto">
-          <LoginForm />
+          <SingUpForm />
         </Col>
-        <Col md={6} className="d-none d-md-block" style={{
+        <Col
+          md={6} className="d-none d-md-block" style={{
           paddingRight: 0
         }}>
           <Image

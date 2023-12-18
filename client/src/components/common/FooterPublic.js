@@ -1,7 +1,7 @@
-import {Facebook, Instagram} from '../common/Icons';
 import React from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {Facebook, Instagram} from '../common/Icons';
 
 const socialMedia = [
   {
@@ -41,7 +41,7 @@ const footers = [
 const FooterPublic = () => (
   <div
     style={{
-      backgroundColor: '#295943'
+      backgroundColor: '#295943',
     }}>
     <Row className="justify-content-center text-white"
     style={{

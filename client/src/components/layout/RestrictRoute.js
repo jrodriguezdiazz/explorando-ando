@@ -1,4 +1,4 @@
-import { isAuthenticated } from '@/utils/jwtUtil';
+import { isAuthenticated } from '../../utils/jwtUtil';
 import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ const RestrictRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      isAuthenticated() ? (
+      !isAuthenticated() ? (
         <Redirect
           to={{
             pathname: '/',
