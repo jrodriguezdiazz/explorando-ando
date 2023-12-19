@@ -1,6 +1,7 @@
 const {Router} = require('express');
 const {pool} = require('../db');
 const authRoutes = require('./auth.routes');
+const userRoutes = require('./users.routes');
 
 
 const router = Router();
@@ -12,5 +13,6 @@ router.get('/ping', async (req, res) => {
 });
 
 router.use(authRoutes);
+router.use(userRoutes);
 
 module.exports = router;
