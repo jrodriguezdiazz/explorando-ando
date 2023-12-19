@@ -8,9 +8,7 @@ function AppBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand onClick={() => {
-          history.push("/")
-        }}>Explorando Ando</Navbar.Brand>
+        <Navbar.Brand>Explorando Ando</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -18,6 +16,7 @@ function AppBar() {
             style={{maxHeight: '150px'}}
             navbarScroll
           >
+            <Nav.Link href="/">HOME</Nav.Link>
             <Nav.Link href="explora">EXPLORA</Nav.Link>
             <Nav.Link href="resenas">RESEÑAS</Nav.Link>
             <Nav.Link href="sobre-nosotros">NOSOTROS</Nav.Link>

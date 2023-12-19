@@ -1,14 +1,15 @@
 import React, {Fragment, useState} from 'react';
 import {Button, Navbar} from 'react-bootstrap';
-import history from "../../utils/history"
+import {useHistory} from 'react-router-dom';
 import useAuthStore, {userStore} from '../../stores/authStore';
 import {isAuthenticated} from '../../utils/jwtUtil';
 
 const UserBox = () => {
+  const history = useHistory();
   const [isAuth, setIsAuth] = useState(isAuthenticated());
   const logout = useAuthStore((state) => state.logout);
   const user = userStore((state) => state.user);
-  console.log(user);
+
 
   const handleLogOut = (e) => {
     e.preventDefault();

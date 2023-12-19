@@ -1,4 +1,4 @@
-import {Switch} from 'react-router-dom';
+import {BrowserRouter, Switch} from 'react-router-dom';
 import EmptyLayout from './components/layout/EmptyLayout';
 import PublicLayout from './components/layout/PublicLayout';
 import RestrictRoute from './components/layout/RestrictRoute';
@@ -18,25 +18,27 @@ import TripDetail from './pages/public/TripDetail';
 import TripsResults from './pages/public/TripsResults';
 
 function App() {
-  return (<Switch>
-    {/*  ERRORS */}
-    <PublicRoute exact path="/error-interno" layout={EmptyLayout} component={InternalError} />
+  return (
+    <BrowserRouter>
+      <Switch>
+        {/*  ERRORS */}
+        <PublicRoute exact path="/error-interno" layout={EmptyLayout} component={InternalError} />
 
-    {/*/!*  AUTH *!/*/}
-    {/*<PublicRoute exact path="/recuperar-contrasena" layout={EmptyLayout} component={RecoverPass} />*/}
-    {/*<PublicRoute exact path="/reiniciar-contrasena" layout={EmptyLayout} component={ResetPass} />*/}
-    <RestrictRoute exact path="/iniciar-sesion" layout={EmptyLayout} component={Login} />
-    <RestrictRoute exact path="/registrarse" layout={EmptyLayout} component={SingUp} />
+        {/*/!*  AUTH *!/*/}
+        {/*<PublicRoute exact path="/recuperar-contrasena" layout={EmptyLayout} component={RecoverPass} />*/}
+        {/*<PublicRoute exact path="/reiniciar-contrasena" layout={EmptyLayout} component={ResetPass} />*/}
+        <RestrictRoute exact path="/iniciar-sesion" layout={EmptyLayout} component={Login} />
+        <RestrictRoute exact path="/registrarse" layout={EmptyLayout} component={SingUp} />
 
-    {/*/!*  PUBLIC *!/*/}
-    <PublicRoute exact path="/" layout={PublicLayout} component={HomePage} />
-    <PublicRoute exact path="/contacto" layout={PublicLayout} component={Contact} />
-    <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={TripDetail} />
-    <PublicRoute exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
-    <PublicRoute
-      exact
-      path="/politica-de-privacidad"
-      layout={PublicLayout}
+        {/*/!*  PUBLIC *!/*/}
+        <PublicRoute exact path="/" layout={PublicLayout} component={HomePage} />
+        <PublicRoute exact path="/contacto" layout={PublicLayout} component={Contact} />
+        <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={TripDetail} />
+        <PublicRoute exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
+        <PublicRoute
+          exact
+          path="/politica-de-privacidad"
+          layout={PublicLayout}
       component={PrivacyPolicy}
     />
     <PublicRoute
@@ -140,27 +142,28 @@ function App() {
     {/*/>*/}
     {/*<PrivateRoute*/}
     {/*  exact*/}
-    {/*  path="/dashboard/comida/agregar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={FoodMaintenance}*/}
-    {/*/>*/}
+        {/*  path="/dashboard/comida/agregar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={FoodMaintenance}*/}
+        {/*/>*/}
 
-    {/*<PrivateRoute exact path="/dashboard/agendar" layout={MainLayout} component={MovieSchedule} />*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/venta"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={ShoppingHistoryTable}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/venta/detalle-de-factura"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={InvoiceDetail}*/}
-    {/*/>*/}
+        {/*<PrivateRoute exact path="/dashboard/agendar" layout={MainLayout} component={MovieSchedule} />*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/venta"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={ShoppingHistoryTable}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/venta/detalle-de-factura"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={InvoiceDetail}*/}
+        {/*/>*/}
 
-    <PublicRoute exact path="*" layout={EmptyLayout} component={NotFound} />
-  </Switch>);
+        <PublicRoute exact path="*" layout={EmptyLayout} component={NotFound} />
+      </Switch>
+    </BrowserRouter>);
 }
 
 export default App;

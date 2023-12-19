@@ -2,10 +2,11 @@ import {useFormik} from 'formik';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import {useHistory} from 'react-router-dom';
 import useTripStore from '../stores/tripStore';
-import history from '../utils/history';
 
 function SearchBar() {
+  const history = useHistory();
   const {fetchTripsBySearchBar} = useTripStore((state) => state);
 
   const formik = useFormik({

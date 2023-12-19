@@ -64,7 +64,7 @@ const TripsResults = () => {
   const {trips} = useTripStore((state) => state);
 
   useEffect(() => {
-    console.log({trips});
+    console.log(trips);
   }, []);
 
   return (
