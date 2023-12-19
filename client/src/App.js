@@ -1,11 +1,14 @@
 import {BrowserRouter, Switch} from 'react-router-dom';
+
 import EmptyLayout from './components/layout/EmptyLayout';
+import MainLayout from './components/layout/MainLayout';
 import PublicLayout from './components/layout/PublicLayout';
 import RestrictRoute from './components/layout/RestrictRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
 import PublicRoute from './components/routes/PublicRoute';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import TripList from './pages/admin/TripList';
 import AboutUs from './pages/public/AboutUs';
-// import RecoverPass from '@/containers/auth/RecoverPass';
-// import ResetPass from '@/containers/auth/ResetPass';
 import Contact from './pages/public/Contact';
 import HomePage from './pages/public/HomePage';
 import InternalError from './pages/public/InternalError';
@@ -70,15 +73,15 @@ function App() {
 
         {/*<PublicRoute exact path="/kiosko" layout={PublicRoute} component={ShoppingCart} />*/}
 
-        {/*/!*  ADMIN *!/*/}
-        {/*<PrivateRoute exact path="/dashboard" layout={MainLayout} component={DashboardContainer} />*/}
+        {/*  ADMIN */}
+        <PrivateRoute exact path="/dashboard" layout={MainLayout} component={AdminDashboard} />
 
-        {/*<PrivateRoute*/}
-        {/*  exact*/}
-        {/*  path="/dashboard/sala/agregar"*/}
-        {/*  layout={MainLayout}*/}
-        {/*  component={RoomMaintenance}*/}
-        {/*/>*/}
+        <PrivateRoute
+          exact
+          path="/dashboard/destino"
+          layout={MainLayout}
+          component={TripList}
+        />
         {/*<PrivateRoute*/}
         {/*  exact*/}
         {/*  path="/dashboard/sala/editar"*/}

@@ -34,7 +34,7 @@ const UserBox = () => {
               Cerrar Sesión
             </Button>
             <Navbar.Text>
-              Signed in as: <a href="login">{user.firstName || 'user'}</a>
+              Signed in as: <a href="login">{user.email || 'user'}</a>
             </Navbar.Text>
           </Navbar.Collapse>
         </Fragment>

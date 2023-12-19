@@ -8053,6 +8053,11 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
+react-bootstrap-drawer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-drawer/-/react-bootstrap-drawer-1.0.1.tgz#244050321b22cffc2d001c44e153f1b4d84a1685"
+  integrity sha512-OU1MZf4fpdkq1lil19MiA2nHbIv+aFn6YMQN+j0kFEfs+9YZRztJ5+o8E7HADyFhGIPXzq/MWcQvHS58cnWWmA==
+
 react-bootstrap-icons@^1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-bootstrap-icons/-/react-bootstrap-icons-1.10.3.tgz#5d64a93c7b172856b03c7d3cd5119a025b094966"
