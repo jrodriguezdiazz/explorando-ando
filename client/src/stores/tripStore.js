@@ -1,9 +1,10 @@
 import create from 'zustand';
-import {getTripByCharacteristics} from '../api/trip';
+import {getNextTrips, getTripByCharacteristics} from '../api/trip';
 
 const useTripStore = create(
   (set, get) => ({
     trips: [],
+    nextTrips: [],
     error: null,
     fetchTripsBySearchBar: async (data) => {
       try {
@@ -22,6 +23,22 @@ const useTripStore = create(
     },
     getTripById: (tripId) => {
       return get().trips.filter(({id}) => id === tripId)[0];
+    },
+    fetchNextTrips: async () => {
+      try {
+        if (get().nextTrips.length) return;
+        const response = await getNextTrips();
+        set((state) => ({
+          ...state,
+          nextTrips: response.data.data,
+          error: null,
+        }));
+      } catch (error) {
+        set((state) => ({
+          ...state,
+          error: error.message,
+        }));
+      }
     },
   })
 );

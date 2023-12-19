@@ -23,3 +23,8 @@ export const getAllReviewss = () => {
 export const updatePassword = (data, id) => {
   return api.put(`/users/reset/${id}`, data);
 };
+
+
+export const getLatestReviews = () => {
+  return api.get(`/reviews/latest`);
+};

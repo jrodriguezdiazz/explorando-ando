@@ -18,8 +18,6 @@ const TripDetail = () => {
     setTrip(() => (getTripById(tripId)));
   }, []);
 
-  console.log(trip);
-
   if (!trip) return <Loading />;
 
   return (<Container fluid>

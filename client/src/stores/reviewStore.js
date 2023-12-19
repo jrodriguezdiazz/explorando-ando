@@ -1,15 +1,16 @@
-import {getTripByCharacteristics} from '../api/trip';
+import {getLatestReviews} from '../api/reviews';
 import create from 'zustand';
 
-const useTripStore = create((set, get) => ({
-  trips: [],
+const useReviewStore = create((set, get) => ({
+  reviews: [],
   error: null,
-  fetchTripsBySearchBar: async (data) => {
+  fetchLatestReviews: async () => {
     try {
-      if (get().trips.length) return;
-      const response = await getTripByCharacteristics(data)
+      if (get().reviews.length) return;
+      const response = await getLatestReviews();
+      console.log({response});
       set({
-        trips: response.data,
+        reviews: response.data.data,
         error: null,
       });
     } catch (error) {
@@ -19,11 +20,8 @@ const useTripStore = create((set, get) => ({
       }));
     }
   },
-  getTripById: (tripId) => {
-    return get().trips.filter(({id}) => id === tripId)[0];
-  },
 }));
 
-useTripStore.subscribe(console.log);
+useReviewStore.subscribe(console.log);
 
-export default useTripStore;
+export default useReviewStore;

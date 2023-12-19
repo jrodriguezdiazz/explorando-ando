@@ -27,3 +27,7 @@ export const updatePassword = (data, id) => {
 export const getTripByCharacteristics = (data) => {
   return api.get(`/trip/find`, data);
 }
+
+export const getNextTrips = (data) => {
+  return api.get(`/trip/next-trips`, data);
+}
