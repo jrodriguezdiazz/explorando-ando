@@ -1,29 +1,7 @@
 import React from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import {Facebook, Instagram} from '../common/Icons';
 
-const socialMedia = [
-  {
-    Icon: Facebook, link: 'https://www.facebook.com/caribbeancinemasrd/'
-  },
-  {
-    Icon: Instagram, link: 'https://www.instagram.com/'
-  },
-];
-
-const SocialMediaLinks = () => (
-  <Col xs={6} sm={3}>
-    <h6>Síguenos</h6>
-    <div>
-      {socialMedia.map(({Icon, link}) => (
-        <Link to={{pathname: link}} key={link} target="_blank" rel="noopener noreferrer" className="social-icon">
-          <Icon />
-        </Link>
-      ))}
-    </div>
-  </Col>
-);
 
 const footers = [
   {

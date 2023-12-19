@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
-import { GeoAltFill } from 'react-bootstrap-icons';
+import {ListGroup} from 'react-bootstrap';
+import {GeoAltFill} from 'react-bootstrap-icons';
 
 const NearbyPlacesList = () => {
   const places = [

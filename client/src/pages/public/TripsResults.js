@@ -1,18 +1,19 @@
-import React from 'react';
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import React, {useEffect} from 'react';
+import {Button, Card, Col, Container, Row} from 'react-bootstrap';
+import useTripStore from '../../stores/tripStore';
 
 const destinations = [
   {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
+    title: 'Punta Cana',
+    description: 'La zona turística más popular de República Dominicana.',
+    date: 'September 19, 2024',
+    imageUrl: 'https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg'
   },
   {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
+    title: 'Punta Cana',
+    description: 'La zona turística más popular de República Dominicana.',
+    date: 'September 19, 2024',
+    imageUrl: 'https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg'
   },
   {
     title: "Punta Cana",
@@ -60,6 +61,12 @@ const DestinationCard = ({ destination }) => {
 };
 
 const TripsResults = () => {
+  const {trips} = useTripStore((state) => state);
+
+  useEffect(() => {
+    console.log({trips});
+  }, []);
+
   return (
     <Container>
       <h3>
