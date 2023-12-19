@@ -2,6 +2,8 @@ const {Router} = require('express');
 const {pool} = require('../db');
 const authRoutes = require('./auth.routes');
 const userRoutes = require('./users.routes');
+const tripRoutes = require('./trip.routes');
+const reviewsRoutes = require('./reviews.routes');
 
 const router = Router();
 
@@ -13,5 +15,7 @@ router.get('/ping', async (req, res) => {
 
 router.use(authRoutes);
 router.use(userRoutes);
+router.use(tripRoutes);
+router.use(reviewsRoutes);
 
 module.exports = router;
