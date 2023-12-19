@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
-import {Button, Nav, Navbar, OverlayTrigger, Tooltip} from 'react-bootstrap';
-import {Link, useHistory} from 'react-router-dom';
+import {Button, Navbar} from 'react-bootstrap';
+import history from "../../utils/history"
 import useAuthStore, {userStore} from '../../stores/authStore';
 import {isAuthenticated} from '../../utils/jwtUtil';
 
@@ -8,7 +8,7 @@ const UserBox = () => {
   const [isAuth, setIsAuth] = useState(isAuthenticated());
   const logout = useAuthStore((state) => state.logout);
   const user = userStore((state) => state.user);
-  const history = useHistory();
+  console.log(user);
 
   const handleLogOut = (e) => {
     e.preventDefault();
@@ -17,11 +17,11 @@ const UserBox = () => {
   };
 
   const handleLogin = () => {
-    history.push('/login');
+    history.push('/iniciar-sesion');
   };
 
   const handleRegister = () => {
-    history.push('/signup');
+    history.push('/registrarse');
   };
 
   return (
@@ -29,8 +29,11 @@ const UserBox = () => {
       {isAuth ? (
         <Fragment>
           <Navbar.Collapse className="justify-content-end">
+            <Button variant="outline-primary" onClick={handleLogOut}>
+              Cerrar Sesión
+            </Button>
             <Navbar.Text>
-              Signed in as: <a href="login">{user.userName || 'user'}</a>
+              Signed in as: <a href="login">{user.firstName || 'user'}</a>
             </Navbar.Text>
           </Navbar.Collapse>
         </Fragment>

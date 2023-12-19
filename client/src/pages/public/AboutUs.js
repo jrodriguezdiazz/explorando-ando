@@ -17,7 +17,7 @@ const AboutUs = () => {
         </Col>
         <Col xs={12} md={3}>
           <Card>
-            <Card.Img variant="top" src="/path-to-your-image.jpg" />
+            <Card.Img variant="top" src="https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg" />
           </Card>
         </Col>
       </Row>

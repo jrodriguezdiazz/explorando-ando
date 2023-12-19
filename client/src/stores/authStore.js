@@ -27,16 +27,16 @@ const useAuthStore = create((set) => ({
   login: async ({ email, password }) => {
     try {
       console.log({email, password});
-      const response = await loginUser({ email, password });
+      const {data} = await loginUser({ email, password });
       set({
         isAuthenticated: true,
         isLoading: false,
-        token: response.token,
+        token: data.token,
         errorMessage: null,
       });
-      userStore.setState({ user: { ...response.data.user, email: response.data.email } });
-      setLocalStorage(JWT_TOKEN, response.token);
-      history.goBack();
+      userStore.setState({ user: { ...data.user, email: data.email } });
+      setLocalStorage(JWT_TOKEN, data.token);
+      history.push("/")
     } catch (error) {
       set({
         isAuthenticated: false,

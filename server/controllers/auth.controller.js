@@ -12,10 +12,9 @@ const {pool} = require('../db');
  */
 const login = async (req, res) => {
   const {email, password} = req.body;
-  const [users] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
-
-  if (users.length !== 0) {
-    const [user] = users;
+  const {rows} = await pool.query(`SELECT * FROM users WHERE email = '${email}'`);
+  if (rows.length !== 0) {
+    const [user] = rows;
     if (bcrypt.compareSync(password, user.password)) {
       const token = jwt.sign(
         {

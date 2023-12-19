@@ -6,7 +6,7 @@ const RestrictRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      !isAuthenticated() ? (
+      isAuthenticated() ? (
         <Redirect
           to={{
             pathname: '/',

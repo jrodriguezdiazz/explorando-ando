@@ -1,5 +1,5 @@
 export const APP_HOST = process.env.APP_HOST || 'localhost';
-export const APP_PORT = process.env.APP_PORT || 3000;
+export const APP_PORT = process.env.APP_PORT || 3001;
 
 export const HOST =
   APP_PORT === 80 || process.env.NODE_ENV === 'production'

@@ -2,12 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import UserBox from '../auth/UserBox';
+import history from "../../utils/history"
 
 function AppBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Explorando Ando</Navbar.Brand>
+        <Navbar.Brand onClick={() => {
+          history.push("/")
+        }}>Explorando Ando</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
