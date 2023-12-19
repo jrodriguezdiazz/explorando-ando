@@ -1,23 +1,20 @@
 import React from 'react';
 import {Col, ListGroup, Row} from 'react-bootstrap';
-import {Briefcase, Fan, Wifi1} from 'react-bootstrap-icons';
+import {CardChecklist} from 'react-bootstrap-icons';
 
-const AmenitiesList = () => {
+const AmenitiesList = ({trip}) => {
+  const {tripsComforts} = trip;
   return (
 
     <Row className="my-4">
-      <Col md={8}>
+      <Col md={12} sx={12} l={8}>
         <h3>Facilidades</h3>
         <ListGroup horizontal>
-          <ListGroup.Item>
-            <Wifi1 /> Free Wifi1
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Briefcase /> Business Services
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Fan /> Air Conditioning
-          </ListGroup.Item>
+          {tripsComforts.map((confort) => (
+            <ListGroup.Item key={confort}>
+              <CardChecklist /> {confort}
+            </ListGroup.Item>
+          ))}
         </ListGroup>
       </Col>
     </Row>

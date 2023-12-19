@@ -33,115 +33,116 @@ function App() {
         {/*/!*  PUBLIC *!/*/}
         <PublicRoute exact path="/" layout={PublicLayout} component={HomePage} />
         <PublicRoute exact path="/contacto" layout={PublicLayout} component={Contact} />
-        <PublicRoute exact path="/detalle-de-destino" layout={PublicLayout} component={TripDetail} />
+        <PublicRoute
+          exact
+          path="/explora"
+          layout={PublicLayout}
+          component={TripsResults}
+        />
+        <PublicRoute exact path="/explora/:tripId" layout={PublicLayout} component={TripDetail} />
         <PublicRoute exact path="/sobre-nosotros" layout={PublicLayout} component={AboutUs} />
         <PublicRoute
           exact
           path="/politica-de-privacidad"
           layout={PublicLayout}
-      component={PrivacyPolicy}
-    />
-    <PublicRoute
-      exact
-      path="/terminos-y-condiciones"
-      layout={PublicLayout}
-      component={TermsAndConditions}
-    />
+          component={PrivacyPolicy}
+        />
+        <PublicRoute
+          exact
+          path="/terminos-y-condiciones"
+          layout={PublicLayout}
+          component={TermsAndConditions}
+        />
 
-    <PublicRoute
-      exact
-      path="/explora"
-      layout={PublicLayout}
-      component={TripsResults}
-    />
 
-    {/*/!*  PRIVATE *!/*/}
-    {/*<PrivateRoute exact path="/reservar-destino" layout={PublicRoute} component={FinishOrder} />*/}
 
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/pedido-completado"*/}
-    {/*  layout={PublicRoute}*/}
-    {/*  component={OrderCompleted}*/}
-    {/*/>*/}
+        {/*/!*  PRIVATE *!/*/}
+        {/*<PrivateRoute exact path="/reservar-destino" layout={PublicRoute} component={FinishOrder} />*/}
 
-    {/*<PrivateRoute exact path="/verificar" layout={PublicRoute} component={VerifyToken} />*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/pedido-completado"*/}
+        {/*  layout={PublicRoute}*/}
+        {/*  component={OrderCompleted}*/}
+        {/*/>*/}
 
-    {/*<PublicRoute exact path="/kiosko" layout={PublicRoute} component={ShoppingCart} />*/}
+        {/*<PrivateRoute exact path="/verificar" layout={PublicRoute} component={VerifyToken} />*/}
 
-    {/*/!*  ADMIN *!/*/}
-    {/*<PrivateRoute exact path="/dashboard" layout={MainLayout} component={DashboardContainer} />*/}
+        {/*<PublicRoute exact path="/kiosko" layout={PublicRoute} component={ShoppingCart} />*/}
 
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/sala/agregar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={RoomMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/sala/editar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={RoomMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute exact path="/dashboard/sala" layout={MainLayout} component={RoomTable} />*/}
+        {/*/!*  ADMIN *!/*/}
+        {/*<PrivateRoute exact path="/dashboard" layout={MainLayout} component={DashboardContainer} />*/}
 
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/promociones/agregar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={PromotionMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/promociones/editar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={PromotionMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/promociones"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={PromotionTable}*/}
-    {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/sala/agregar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={RoomMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/sala/editar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={RoomMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute exact path="/dashboard/sala" layout={MainLayout} component={RoomTable} />*/}
 
-    {/*<PrivateRoute exact path="/dashboard/pelicula" layout={MainLayout} component={MovieTable} />*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/pelicula/agregar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={MovieMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/pelicula/editar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={MovieMaintenance}*/}
-    {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/promociones/agregar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={PromotionMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/promociones/editar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={PromotionMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/promociones"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={PromotionTable}*/}
+        {/*/>*/}
 
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/usuario/agregar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={UserMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/usuario/editar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={UserMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute exact path="/dashboard/usuario" layout={MainLayout} component={UserTable} />*/}
+        {/*<PrivateRoute exact path="/dashboard/pelicula" layout={MainLayout} component={MovieTable} />*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/pelicula/agregar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={MovieMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/pelicula/editar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={MovieMaintenance}*/}
+        {/*/>*/}
 
-    {/*<PrivateRoute exact path="/dashboard/kiosko" layout={MainLayout} component={FoodTable} />*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
-    {/*  path="/dashboard/comida/editar"*/}
-    {/*  layout={MainLayout}*/}
-    {/*  component={FoodMaintenance}*/}
-    {/*/>*/}
-    {/*<PrivateRoute*/}
-    {/*  exact*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/usuario/agregar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={UserMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/usuario/editar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={UserMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute exact path="/dashboard/usuario" layout={MainLayout} component={UserTable} />*/}
+
+        {/*<PrivateRoute exact path="/dashboard/kiosko" layout={MainLayout} component={FoodTable} />*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
+        {/*  path="/dashboard/comida/editar"*/}
+        {/*  layout={MainLayout}*/}
+        {/*  component={FoodMaintenance}*/}
+        {/*/>*/}
+        {/*<PrivateRoute*/}
+        {/*  exact*/}
         {/*  path="/dashboard/comida/agregar"*/}
         {/*  layout={MainLayout}*/}
         {/*  component={FoodMaintenance}*/}
@@ -163,7 +164,8 @@ function App() {
 
         <PublicRoute exact path="*" layout={EmptyLayout} component={NotFound} />
       </Switch>
-    </BrowserRouter>);
+    </BrowserRouter>
+  );
 }
 
 export default App;

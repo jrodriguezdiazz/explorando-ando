@@ -1,60 +1,27 @@
 import React, {useEffect} from 'react';
 import {Button, Card, Col, Container, Row} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
+import Loading from '../../components/common/Loading';
 import useTripStore from '../../stores/tripStore';
 
-const destinations = [
-  {
-    title: 'Punta Cana',
-    description: 'La zona turística más popular de República Dominicana.',
-    date: 'September 19, 2024',
-    imageUrl: 'https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg'
-  },
-  {
-    title: 'Punta Cana',
-    description: 'La zona turística más popular de República Dominicana.',
-    date: 'September 19, 2024',
-    imageUrl: 'https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg'
-  },
-  {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
-  },
-  {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
-  },
-  {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
-  },
-  {
-    title: "Punta Cana",
-    description: "La zona turística más popular de República Dominicana.",
-    date: "September 19, 2024",
-    imageUrl: "https://www.mitur.gob.do/wp-content/uploads/2022/03/Playa-Dominicus-Bayahibe.jpg"
-  },
-  // ... other destinations
-];
+const TripCard = ({trip}) => {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push(`/explora/${trip.id}`);
+  };
 
-const DestinationCard = ({ destination }) => {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={destination.imageUrl} />
+    <Card style={{width: '18rem', margin: '20px 0px'}}>
+      <Card.Img variant="top" src={trip.banner} />
       <Card.Body>
-        <Card.Title>{destination.title}</Card.Title>
+        <Card.Title>{trip.title}</Card.Title>
         <Card.Text>
-          {destination.description}
+          {trip.description.slice(0, 100)}...
         </Card.Text>
-        <Button variant="primary">Explore</Button>
+        <Button variant="primary" onClick={handleClick}>Ver en detalle 👀</Button>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">{destination.date}</small>
+        <small className="text-muted">Provincia: {trip.province}</small>
       </Card.Footer>
     </Card>
   );
@@ -67,15 +34,16 @@ const TripsResults = () => {
     console.log(trips);
   }, []);
 
+  if (!trips.length) return <Loading />;
   return (
     <Container>
       <h3>
         Destinos/ofertas que te pueden gustar
       </h3>
       <Row xs={1} md={2} lg={4} className="g-4">
-        {destinations.map((destination, idx) => (
-          <Col key={idx}>
-            <DestinationCard destination={destination} />
+        {trips.map((trip) => (
+          <Col key={trip.id}>
+            <TripCard trip={trip} />
           </Col>
         ))}
       </Row>
