@@ -27,19 +27,10 @@ const login = async (req, res) => {
       res.json({
         success: true,
         token,
-        email: user.email,
-        user: {
-          id: user.id,
-          firstName: user.first_name,
-          lastName: user.last_name,
-          birthday: user.birthday,
-          phone: user.phone,
-          stripeId: user.stripe_id,
-          sexId: user.sex_id,
-          userName: user.user_name,
-        },
+        user,
       });
     } else {
+
       res.status(HttpStatus.UNAUTHORIZED).json({
         success: false,
         message: 'Authentication failed. Invalid password.',
