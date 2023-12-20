@@ -27,6 +27,7 @@ const useMode = ({
   const submitFunction = isEditMode ? (values) => onEdit(values, entityId) : onAdd;
 
   const handleSubmit = (values, { setSubmitting }) => {
+    console.log({values});
     if (!isEditMode && removeValues.length) {
       removeValues.map((key) => delete values[key]);
     }

@@ -34,6 +34,5 @@ export const UserYupSchema = Yup.object().shape({
       .required('Requerido'),
     otherwise: Yup.string(),
   }),
-  sex_id: Yup.mixed().oneOf([1, 2]).required('Requerido'),
   roles_id: Yup.mixed().oneOf(['1', '2', '3']).required('Requerido'),
 });

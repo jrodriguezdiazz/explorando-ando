@@ -76,20 +76,26 @@ const store = async (req, res) => {
 };
 
 function update(req, res) {
+  const { first_name, last_name, email, birthday, phone, sex_id, roles_id, user_name } = req.body;
+  const userId = req.params.id;
+
+  const query = `
+      UPDATE users
+      SET first_name = $1,
+          last_name  = $2,
+          email      = $3,
+          birthday   = $4,
+          phone      = $5,
+          sex_id     = $6,
+          roles_id   = $7,
+          user_name  = $8
+      WHERE id = $9
+  `;
+
+  const values = [first_name, last_name, email, birthday, phone, sex_id, roles_id, user_name, userId];
+
   pool
-    .query('UPDATE users SET ? where ID = ?', [
-      {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        birthday: req.body.birthday,
-        phone: req.body.phone,
-        sex_id: req.body.sex_id,
-        roles_id: req.body.roles_id,
-        user_name: req.body.user_name,
-      },
-      req.params.id,
-    ])
+    .query(query, values)
     .then((result) =>
       res.json({
         error: false,
@@ -97,12 +103,13 @@ function update(req, res) {
       })
     )
     .catch((err) =>
-      res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+      res.status(500).json({
         error: true,
-        data: {message: err.message},
+        data: { message: err.message },
       })
     );
 }
+
 
 function deleteUser(req, res) {
   pool

@@ -17,8 +17,8 @@ import useMode from '../../../hooks/useMode';
 import {UserYupSchema} from '../../../schemas/user';
 
 const sex = [
-  {value: 'M', label: 'M'},
-  {value: 'F', label: 'F'},
+  {value: 1, label: 'M'},
+  {value: 2, label: 'F'},
 ];
 const RolList = [
   {value: '1', label: 'General'},
@@ -50,7 +50,7 @@ const UserMaintenance = () => {
       <h4>{title}</h4>
       {error && <CustomizedSnackbar variant="error" message={error} />}
       <Col>
-        <Col md={isEditMode ? 6 : 12}>
+        <Col>
           <Formik
             initialValues={
               newInitialData || {
