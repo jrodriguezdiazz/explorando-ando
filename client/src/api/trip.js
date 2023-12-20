@@ -9,15 +9,15 @@ export const editTrip = (data, id) => {
 };
 
 export const deleteTrip = (id) => {
-  return api.delete(`trip/${id}`);
+  return api.delete(`/trip/${id}`);
 };
 
 export const getTripById = (id) => {
-  return api.get(`trip/${id}`);
+  return api.get(`/trip/${id}`);
 };
 
 export const getAllTrips = () => {
-  return api.get('trip');
+  return api.get('/trip');
 };
 
 export const updatePassword = (data, id) => {

@@ -90,6 +90,12 @@ function App() {
           layout={MainLayout}
           component={TripMaintenance}
         />
+        <PrivateRoute
+          exact
+          path="/dashboard/destinos/agregar"
+          layout={MainLayout}
+          component={TripMaintenance}
+        />
 
         <PrivateRoute
           exact
