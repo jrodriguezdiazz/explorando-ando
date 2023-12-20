@@ -1,10 +1,16 @@
 import React, {useEffect} from 'react';
-import {Card, Col, Row} from 'react-bootstrap';
+import {Button, Card, Col, Row} from 'react-bootstrap';
 import {StarFill} from 'react-bootstrap-icons';
+import {useHistory} from 'react-router-dom';
 import useReviewStore from '../../stores/reviewStore';
 import Loading from '../common/Loading';
 
 const ReviewCard = ({review}) => {
+  const history = useHistory()
+  const handleClick = () => {
+    history.push(`/explora/${review.tripId}`)
+  }
+
   return (
     <Card className="mb-4" style={{width: '18rem'}}>
       <Card.Body>
@@ -20,6 +26,7 @@ const ReviewCard = ({review}) => {
         <Card.Text>
           <small className="text-muted">{review.name}</small>
         </Card.Text>
+        <Button variant="primary" onClick={handleClick}>Ver en detalle 👀</Button>
       </Card.Body>
       <Card.Img variant="top" src={review.image} />
     </Card>

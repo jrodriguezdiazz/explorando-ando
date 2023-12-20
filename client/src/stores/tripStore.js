@@ -1,5 +1,5 @@
 import create from 'zustand';
-import {getNextTrips, getTripByCharacteristics} from '../api/trip';
+import {getNextTrips, getTripByCharacteristics, getAllTrips} from '../api/trip';
 
 const useTripStore = create(
   (set, get) => ({
@@ -21,8 +21,12 @@ const useTripStore = create(
         }));
       }
     },
-    getTripById: (tripId) => {
-      return get().trips.filter(({id}) => id === tripId)[0];
+    getTripById: async (tripId) => {
+      const trips = get().trips.length
+        ? get().trips
+        : (await getAllTrips()).data.data;
+      console.log(trips);
+      return trips.filter(({id}) => id === tripId)[0];
     },
     fetchNextTrips: async () => {
       try {

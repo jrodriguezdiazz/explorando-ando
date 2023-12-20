@@ -15,7 +15,11 @@ const TripDetail = () => {
   const {getTripById} = useTripStore((state) => state);
 
   useEffect(() => {
-    setTrip(() => (getTripById(tripId)));
+    async function fetchData() {
+      const trips = await getTripById(tripId);
+      setTrip(trips);
+    }
+    fetchData();
   }, []);
 
   if (!trip) return <Loading />;

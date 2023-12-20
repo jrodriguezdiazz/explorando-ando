@@ -13,7 +13,7 @@ async function getLatestReviews(req, res) {
           starts: 4,
           review: 'El ministerio hizo un buen trabajo en la remoción de los puentes colgantes, señalizaciones y demás. En el salto en si, no permiten bañarse, pero del otro lado hay 3 pozas de corriente suave y sin piedras gigantes, ideal para ir con niños.',
           image: 'https://traphilcom.files.wordpress.com/2020/06/salto-jimenoa-ii-in-jarabacoa-dominican-republic00019.jpeg',
-          tripId: '234567',
+          tripId: 'bayahibe',
           tripName: 'Salto Jimenoa 2',
           header: 'Me gustó mucho'
         },
@@ -24,7 +24,7 @@ async function getLatestReviews(req, res) {
           starts: 4,
           review: 'El ministerio hizo un buen trabajo en la remoción de los puentes colgantes, señalizaciones y demás. En el salto en si, no permiten bañarse, pero del otro lado hay 3 pozas de corriente suave y sin piedras gigantes, ideal para ir con niños.',
           image: 'https://traphilcom.files.wordpress.com/2020/06/salto-jimenoa-ii-in-jarabacoa-dominican-republic00019.jpeg',
-          tripId: '234567',
+          tripId: 'bayahibe2',
           tripName: 'Salto Jimenoa 2',
           header: 'Me gustó mucho'
         }
