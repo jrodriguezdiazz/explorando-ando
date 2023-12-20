@@ -6,7 +6,7 @@ const validate = {
     last_name: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required(),
-    birthday: Joi.date().required(),
+    birthday: Joi.string().required(),
     sex_id: Joi.number().required(),
     phone: Joi.string().required(),
     user_name: Joi.string().required(),

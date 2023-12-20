@@ -33,7 +33,7 @@ const UserMaintenance = () => {
     onEdit: editUser,
     redirectTo: '/dashboard/usuarios',
     fetchById: getUserById,
-    removeValues: ['passwordConfirmation', 'isEditMode'],
+    removeValues: ['passwordConfirmation', 'isEditMode', 'confirmPassword', 'oldPassword'],
     history
   });
 

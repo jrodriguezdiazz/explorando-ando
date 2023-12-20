@@ -104,6 +104,13 @@ function App() {
           component={UserMaintenance}
         />
 
+        <PrivateRoute
+          exact
+          path="/dashboard/usuarios/agregar"
+          layout={MainLayout}
+          component={UserMaintenance}
+        />
+
         {/*<PrivateRoute exact path="/dashboard/sala" layout={MainLayout} component={RoomTable} />*/}
 
         {/*<PrivateRoute*/}

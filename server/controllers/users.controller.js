@@ -8,7 +8,10 @@ const {pool} = require('../db');
 
 async function findAll(req, res) {
   try {
-    const {rows} = await pool.query(`SELECT * FROM users WHERE status_id = '1' ORDER BY created_at ASC`);
+    const {rows} = await pool.query(`SELECT *
+                                     FROM users
+                                     WHERE status_id = '1'
+                                     ORDER BY created_at ASC`);
     res.json({
       error: false,
       data: rows,
@@ -48,12 +51,12 @@ const store = async (req, res) => {
     const {first_name, last_name, email, birthday, phone, sex_id, roles_id, user_name} = req.body;
     const id = uuidv4();
     const password = bcrypt.hashSync(req.body.password, 10);
-    const [result] = await pool.query(
+    const {rows} = await pool.query(
       `SELECT COUNT(*) AS total
        from users
        where email = '${email}'`
     );
-    const isUserRegistered = result[0].total > 0;
+    const isUserRegistered = parseInt(rows[0].total) > 0;
 
     if (isUserRegistered) {
       res.status(HttpStatus.BAD_REQUEST).json({
@@ -64,19 +67,20 @@ const store = async (req, res) => {
                                          roles_id, status_id)
                       VALUES ('${id}', '${first_name}', '${last_name}', '${birthday}', '${email}',
                               '${phone}', '${password}', '${sex_id}', '${roles_id}', '1');`;
-      const [data] = await pool.query(insert);
+      const {row} = await pool.query(insert);
       res.json({
         success: true,
-        data,
+        data: row,
       });
     }
   } catch (error) {
+    console.log(error);
     res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({message: error.message});
   }
 };
 
 function update(req, res) {
-  const { first_name, last_name, email, birthday, phone, sex_id, roles_id, user_name } = req.body;
+  const {first_name, last_name, email, birthday, phone, sex_id, roles_id, user_name} = req.body;
   const userId = req.params.id;
 
   const query = `
@@ -105,7 +109,7 @@ function update(req, res) {
     .catch((err) =>
       res.status(500).json({
         error: true,
-        data: { message: err.message },
+        data: {message: err.message},
       })
     );
 }

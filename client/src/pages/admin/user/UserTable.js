@@ -87,7 +87,7 @@ const UserTable = () => {
       rows={users}
       actions={actions}
       title={'Usuarios'}
-      link={'/dashboard/usuario/agregar'}
+      link={'/dashboard/usuarios/agregar'}
     />
     <Notification notify={notify} setNotify={setNotify} />
     <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />

@@ -16,7 +16,7 @@ router.get('/users', findAll);
 
 router.get('/users/:id', findById);
 
-router.post('/users', validate(schema.storeUser), store);
+router.post('/users', store);
 
 router.put('/users/:id', update);
 
