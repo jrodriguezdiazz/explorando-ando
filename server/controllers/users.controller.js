@@ -57,16 +57,16 @@ const store = async (req, res) => {
        where email = '${email}'`
     );
     const isUserRegistered = parseInt(rows[0].total) > 0;
-
     if (isUserRegistered) {
       res.status(HttpStatus.BAD_REQUEST).json({
         details: [{message: 'Invalid email.'}],
       });
     } else {
       const insert = `INSERT INTO users (id, first_name, last_name, birthday, email, phone, password, sex_id,
-                                         roles_id, status_id)
+                                         roles_id, status_id, user_name)
                       VALUES ('${id}', '${first_name}', '${last_name}', '${birthday}', '${email}',
-                              '${phone}', '${password}', '${sex_id}', '${roles_id}', '1');`;
+                              '${phone}', '${password}', '${sex_id}', '1', '1', '${user_name}');`;
+      console.log(insert);
       const {row} = await pool.query(insert);
       res.json({
         success: true,
