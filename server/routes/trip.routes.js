@@ -6,6 +6,8 @@ const router = Router();
 
 router.get('/trip/find', findTrip);
 
+router.get('/trip', findTrip);
+
 router.get('/trip/next-trips', findNextTrip);
 
 module.exports = router;

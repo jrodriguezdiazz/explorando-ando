@@ -3,8 +3,8 @@ import {Col, Collapse, Container, Row} from 'react-bootstrap';
 import {Drawer,} from 'react-bootstrap-drawer';
 import 'react-bootstrap-drawer/lib/style.css';
 import {Eye} from 'react-bootstrap-icons';
-// import {Link} from 'react-router-dom';
-//
+import {Link} from 'react-router-dom';
+
 const links = [
   {
     label: 'Panel General',
@@ -13,7 +13,11 @@ const links = [
   },
   {
     label: 'Destinos',
-    link: '/dashboard/destino',
+    link: '/dashboard/destinos',
+    icon: <Eye />,
+  }, {
+    label: 'Usuarios',
+    link: '/dashboard/usuarios',
     icon: <Eye />,
   },
 ];
@@ -30,11 +34,13 @@ const ApplicationDrawer = (props) => {
       <Collapse in={open}>
         <Drawer.Overflow>
           <Drawer.ToC>
-            <Drawer.Header href="/">Application</Drawer.Header>
+            <Drawer.Header href="/dashboard">Explorando Ando Admin</Drawer.Header>
             {links.map(({label, link}) => (
-              <Drawer.Nav key={label}>
-                <Drawer.Item href={link}>{label}</Drawer.Item>
-              </Drawer.Nav>
+              <Link to={link} key={label}>
+                <Drawer.Nav>
+                  <Drawer.Item>{label}</Drawer.Item>
+                </Drawer.Nav>
+              </Link>
             ))}
           </Drawer.ToC>
         </Drawer.Overflow>

@@ -9,10 +9,11 @@ const MainLayout = ({children}) => {
     <Container fluid style={{width: '100%', height: 'auto', overflow: 'hidden'}}>
       <div style={{position: 'relative', display: 'flex', width: '100%', height: '100%'}}>
         <Header />
-        <MiniDrawer />
-        <main style={{width: '100%', flexGrow: 1, padding: 24, height: 'calc(100% - 56px)', marginTop: 56}}>
-          {children}
-        </main>
+        <MiniDrawer>
+          <main style={{flexGrow: 1, padding: 24, height: 'calc(100% - 56px)', marginTop: 56}}>
+            {children}
+          </main>
+        </MiniDrawer>
       </div>
       <Footer />
     </Container>

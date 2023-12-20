@@ -7,7 +7,10 @@ import RestrictRoute from './components/layout/RestrictRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
 import PublicRoute from './components/routes/PublicRoute';
 import AdminDashboard from './pages/admin/AdminDashboard';
-import TripList from './pages/admin/TripList';
+import TripMaintenance from './pages/admin/trip/TripMaintenance';
+import TripTable from './pages/admin/trip/TripTable';
+import UserMaintenance from './pages/admin/user/UserMaintenance';
+import UserTable from './pages/admin/user/UserTable';
 import AboutUs from './pages/public/AboutUs';
 import Contact from './pages/public/Contact';
 import HomePage from './pages/public/HomePage';
@@ -58,7 +61,6 @@ function App() {
         />
 
 
-
         {/*/!*  PRIVATE *!/*/}
         {/*<PrivateRoute exact path="/reservar-destino" layout={PublicRoute} component={FinishOrder} />*/}
 
@@ -78,16 +80,30 @@ function App() {
 
         <PrivateRoute
           exact
-          path="/dashboard/destino"
+          path="/dashboard/destinos"
           layout={MainLayout}
-          component={TripList}
+          component={TripTable}
         />
-        {/*<PrivateRoute*/}
-        {/*  exact*/}
-        {/*  path="/dashboard/sala/editar"*/}
-        {/*  layout={MainLayout}*/}
-        {/*  component={RoomMaintenance}*/}
-        {/*/>*/}
+        <PrivateRoute
+          exact
+          path="/dashboard/destinos/editar"
+          layout={MainLayout}
+          component={TripMaintenance}
+        />
+
+        <PrivateRoute
+          exact
+          path="/dashboard/usuarios"
+          layout={MainLayout}
+          component={UserTable}
+        />
+        <PrivateRoute
+          exact
+          path="/dashboard/usuarios/editar"
+          layout={MainLayout}
+          component={UserMaintenance}
+        />
+
         {/*<PrivateRoute exact path="/dashboard/sala" layout={MainLayout} component={RoomTable} />*/}
 
         {/*<PrivateRoute*/}

@@ -1,27 +1,27 @@
 import api from './index';
 
 export const addTrip = (data) => {
-  return api.post('users', data);
+  return api.post('trip', data);
 };
 
 export const editTrip = (data, id) => {
-  return api.put(`users/${id}`, data);
+  return api.put(`trip/${id}`, data);
 };
 
 export const deleteTrip = (id) => {
-  return api.delete(`users/${id}`);
+  return api.delete(`trip/${id}`);
 };
 
 export const getTripById = (id) => {
-  return api.get(`users/${id}`);
+  return api.get(`trip/${id}`);
 };
 
 export const getAllTrips = () => {
-  return api.get('users');
+  return api.get('trip');
 };
 
 export const updatePassword = (data, id) => {
-  return api.put(`/users/reset/${id}`, data);
+  return api.put(`/trip/reset/${id}`, data);
 };
 
 export const getTripByCharacteristics = (data) => {

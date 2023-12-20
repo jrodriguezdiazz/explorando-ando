@@ -1,23 +1,23 @@
 import api from './index';
 
 export const addUser = (data) => {
-  return api.post('users', data);
+  return api.post('/users', data);
 };
 
 export const editUser = (data, id) => {
-  return api.put(`users/${id}`, data);
+  return api.put(`/users/${id}`, data);
 };
 
 export const deleteUser = (id) => {
-  return api.delete(`users/${id}`);
+  return api.delete(`/users/${id}`);
 };
 
 export const getUserById = (id) => {
-  return api.get(`users/${id}`);
+  return api.get(`/users/${id}`);
 };
 
 export const getAllUsers = () => {
-  return api.get('users');
+  return api.get('/users');
 };
 
 export const updatePassword = (data, id) => {
