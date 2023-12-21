@@ -42,7 +42,7 @@ async function getTripByCharacteristics(req, res) {
     const characteristicsFiltered = data.filter(({label}) => characteristicsToFiltered.includes(label));
     const ids = await getTripsIdsByCharacteristics(characteristicsFiltered);
     const query = `SELECT *
-                   FROM get_destinations_info(ARRAY [${ids}]);`;
+                   FROM get_destinations_info(ARRAY [${ids}], '${dateParsed}');`;
 
     const {rows} = await pool.query(query);
     res.json({
