@@ -18,6 +18,7 @@ import InternalError from './pages/public/InternalError';
 import Login from './pages/public/Login';
 import NotFound from './pages/public/NotFound';
 import PrivacyPolicy from './pages/public/PrivacyPolicy';
+import Profile from './pages/public/Profile';
 import SingUp from './pages/public/SingUp';
 import TermsAndConditions from './pages/public/TermsAndConditions';
 import TripDetail from './pages/public/TripDetail';
@@ -117,6 +118,13 @@ function App() {
           component={UserMaintenance}
         />
 
+        <PrivateRoute
+          exact
+          path="/profile"
+          layout={PublicLayout}
+          component={Profile}
+        />
+
         {/*<PrivateRoute exact path="/dashboard/sala" layout={MainLayout} component={RoomTable} />*/}
 
         {/*<PrivateRoute*/}
@@ -152,19 +160,6 @@ function App() {
         {/*  component={MovieMaintenance}*/}
         {/*/>*/}
 
-        {/*<PrivateRoute*/}
-        {/*  exact*/}
-        {/*  path="/dashboard/usuario/agregar"*/}
-        {/*  layout={MainLayout}*/}
-        {/*  component={UserMaintenance}*/}
-        {/*/>*/}
-        {/*<PrivateRoute*/}
-        {/*  exact*/}
-        {/*  path="/dashboard/usuario/editar"*/}
-        {/*  layout={MainLayout}*/}
-        {/*  component={UserMaintenance}*/}
-        {/*/>*/}
-        {/*<PrivateRoute exact path="/dashboard/usuario" layout={MainLayout} component={UserTable} />*/}
 
         {/*<PrivateRoute exact path="/dashboard/kiosko" layout={MainLayout} component={FoodTable} />*/}
         {/*<PrivateRoute*/}

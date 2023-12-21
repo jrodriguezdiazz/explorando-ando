@@ -17,7 +17,7 @@ const TripDetail = () => {
   useEffect(() => {
     async function fetchData() {
       const trips = await getTripById(tripId);
-      setTrip(trips);
+      setTrip(trips.data.data[0]);
     }
     fetchData();
   }, []);

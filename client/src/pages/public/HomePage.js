@@ -1,6 +1,5 @@
 import React from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
-import ReviewsSection from '../../components/reviews/ReviewList';
 import SearchBar from '../../components/SearchBar';
 import TripsList from '../../components/trips/TripsList';
 
@@ -20,12 +19,12 @@ const HomePage = () => {
           <TripsList />
         </Col>
       </Row>
-      <Row className="justify-content-md-center text-center my-4">
-        <Col md={12}>
-          <h2>Reseñas y Comentarios</h2>
-          <ReviewsSection />
-        </Col>
-      </Row>
+      {/*<Row className="justify-content-md-center text-center my-4">*/}
+      {/*  <Col md={12}>*/}
+      {/*    <h2>Reseñas y Comentarios</h2>*/}
+      {/*    <ReviewsSection />*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
     </Container>
   );
 };
