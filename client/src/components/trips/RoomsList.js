@@ -2,12 +2,13 @@ import React from 'react';
 import {Button, Card, Col, Row} from 'react-bootstrap';
 
 const RoomCard = ({room}) => {
+  console.log(room);
   return (<Card>
       <Card.Img variant="top" src={room.image} />
       <Card.Body>
         <Card.Title>{room.name}</Card.Title>
         <Card.Text>
-          {room.feature.map((item) => (<li key={item}>{item}</li>))}
+          {room?.feature?.map((item) => (<li key={item}>{item}</li>))}
         </Card.Text>
         <Button variant="primary">Reservar</Button>
       </Card.Body>
