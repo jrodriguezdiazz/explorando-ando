@@ -10,7 +10,6 @@ const UserBox = () => {
   const logout = useAuthStore((state) => state.logout);
   const user = userStore((state) => state.user);
 
-
   const handleLogOut = (e) => {
     e.preventDefault();
     logout();
@@ -24,6 +23,9 @@ const UserBox = () => {
   const handleRegister = () => {
     history.push('/registrarse');
   };
+  const handleProfile = () => {
+    history.push('/profile');
+  };
 
   return (
     <Navbar.Collapse className="justify-content-end">
@@ -34,7 +36,7 @@ const UserBox = () => {
               Cerrar Sesión
             </Button>
             <Navbar.Text>
-              Signed in as: <a href="login">{user.email || 'user'}</a>
+              Inició sesión como: <span onClick={handleProfile}>{user.email || 'user'}</span>
             </Navbar.Text>
           </Navbar.Collapse>
         </Fragment>
