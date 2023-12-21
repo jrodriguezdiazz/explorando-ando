@@ -1,14 +1,15 @@
 const {Router} = require('express');
-const {findTrip, findTripById, findNextTrip} = require('../controllers/trip.controller');
+const {findNextTrip, getTripById, getAllTrips, getTripByCharacteristics} = require('../controllers/trip.controller');
 
 const router = Router();
 
-router.get('/trip/find', findTrip);
+router.get('/trip/find', getTripByCharacteristics);
 
-router.get('/trip', findTripById);
-
-router.get('/trip/:id', findTrip);
+router.get('/trip', getAllTrips);
 
 router.get('/trip/next-trips', findNextTrip);
+
+router.get('/trip/:id', getTripById);
+
 
 module.exports = router;
