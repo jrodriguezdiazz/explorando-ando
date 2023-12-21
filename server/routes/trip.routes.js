@@ -3,7 +3,7 @@ const {findNextTrip, getTripById, getAllTrips, getTripByCharacteristics} = requi
 
 const router = Router();
 
-router.get('/trip/find', getTripByCharacteristics);
+router.post('/trip/find', getTripByCharacteristics);
 
 router.get('/trip', getAllTrips);
 
