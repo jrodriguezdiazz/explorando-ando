@@ -6,7 +6,7 @@ const NearbyPlacesList = ({trip}) => {
   const {nearbyPlaces} = trip;
   return (<Fragment>
     <ListGroup as="ol" numbered className="my-4">
-      {nearbyPlaces.map(({name, distance}) => (<ListGroup.Item
+      {nearbyPlaces?.map(({name, distance}) => (<ListGroup.Item
         as="li"
         className="d-flex justify-content-between align-items-start"
         key={name}

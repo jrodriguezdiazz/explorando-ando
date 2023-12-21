@@ -17,7 +17,7 @@ const RoomCard = ({room}) => {
 const RoomsList = ({trip}) => {
   const {accommodations} = trip;
   return (<Row xs={1} md={2} className="g-4">
-      {accommodations.map((accommodation) => (<Col key={accommodation.id}>
+      {accommodations?.map((accommodation) => (<Col key={accommodation.id}>
           <RoomCard room={accommodation} />
         </Col>))}
     </Row>);

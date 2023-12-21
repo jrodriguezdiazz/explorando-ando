@@ -10,7 +10,7 @@ const AmenitiesList = ({trip}) => {
       <Col md={12} sx={12} l={8}>
         <h3>Facilidades</h3>
         <ListGroup horizontal>
-          {tripsComforts.map((confort) => (
+          {tripsComforts?.map((confort) => (
             <ListGroup.Item key={confort}>
               <CardChecklist /> {confort}
             </ListGroup.Item>
