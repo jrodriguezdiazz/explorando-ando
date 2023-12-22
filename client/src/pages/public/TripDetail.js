@@ -32,7 +32,6 @@ const TripDetail = () => {
           src={trip.banner} />
         <Col lg={8}>
           <TripDescription trip={trip}/>
-          <AmenitiesList trip={trip}/>
           <RoomsList trip={trip}/>
         </Col>
         <Col lg={4}>

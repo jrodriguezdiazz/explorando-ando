@@ -8,7 +8,7 @@ const parseDateFromText = (text) => {
       return null
     }
 
-    return { date: parsedDate.toISOString().split('T')[0] };
+    return parsedDate.toISOString().split('T')[0];
   } catch (error) {
     return null
   }

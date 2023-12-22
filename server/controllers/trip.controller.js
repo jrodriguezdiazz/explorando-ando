@@ -12,6 +12,7 @@ const getCharacteristicsLabels = async () => {
     throw error;
   }
 };
+
 const getTripsIdsByCharacteristics = async (characteristicsFiltered) => {
   let query = 'SELECT id FROM destinations';
 
@@ -36,9 +37,9 @@ async function getTripByCharacteristics(req, res) {
   try {
     const {characteristics, date} = req.body;
     const dateParsed = parseDateFromText(date);
+    console.log(dateParsed);
     const {labels, data} = await getCharacteristicsLabels();
     const characteristicsToFiltered = analyzeText(characteristics, labels);
-    console.log(characteristicsToFiltered);
     const characteristicsFiltered = data.filter(({label}) => characteristicsToFiltered.includes(label));
     const ids = await getTripsIdsByCharacteristics(characteristicsFiltered);
     const query = `SELECT *
